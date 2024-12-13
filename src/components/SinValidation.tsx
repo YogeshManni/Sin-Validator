@@ -19,7 +19,7 @@ const SinValidation = () => {
   };
 
   return (
-    <div className="bg-white text-black p-8 rounded-lg shadow-lg ">
+    <div className="bg-white text-black p-8 rounded-lg shadow-lg  mx-5 md:mx-0">
       <h1 className="text-3xl font-extrabold mb-4 text-center">
         SIN Validation
       </h1>
@@ -30,11 +30,11 @@ const SinValidation = () => {
 
       {/* OTP Input field for entering SIN */}
       <div className="flex justify-center">
-        <Input.OTP length={9} size="large" onInput={handleSinInput} />
+        <Input.OTP length={9} onInput={handleSinInput} />
       </div>
 
       {/* Conditional rendering for the validation result */}
-      {isValid !== null && (
+      {sin.length > 0 && (
         <Alert
           className="mt-5 text-center"
           message={
