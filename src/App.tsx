@@ -9,6 +9,11 @@ function App() {
   const [sin, setSin] = useState<string>("");
   const [isValid, setIsValid] = useState<boolean | null>(null);
 
+  // Handler function for SIN input
+  const handleSinInput: OTPProps["onInput"] = (value: String[]) => {
+    console.log(value);
+  };
+
   return (
     // Creating a section with a gradient background and positioning items in the center
     <section className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white">
@@ -20,6 +25,11 @@ function App() {
         <p className="mb-5 text-center">
           Enter your 9-digit SIN number below to validate
         </p>
+
+        {/* OTP Input field for entering SIN */}
+        <div className="flex justify-center">
+          <Input.OTP length={9} size="large" onInput={handleSinInput} />
+        </div>
       </div>
     </section>
   );
