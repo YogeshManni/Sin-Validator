@@ -11,7 +11,10 @@ function App() {
 
   // Handler function for SIN input
   const handleSinInput: OTPProps["onInput"] = (value: String[]) => {
-    console.log(value);
+    const sinValue = value.join(""); // Combine array of digits into a single string
+    const response = isValidSIN(sinValue); // Validate SIN using the utility function
+    setSin(sinValue); // Update the SIN state
+    setIsValid(response); // Update the validation status state
   };
 
   return (
