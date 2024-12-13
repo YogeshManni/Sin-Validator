@@ -33,6 +33,19 @@ function App() {
         <div className="flex justify-center">
           <Input.OTP length={9} size="large" onInput={handleSinInput} />
         </div>
+
+        {/* Conditional rendering for the validation result */}
+        {isValid !== null && (
+          <Alert
+            className="mt-5 text-center"
+            message={
+              <span className="text-lg">
+                The SIN number <b>{sin}</b> is {isValid ? "Valid" : "Invalid"}
+              </span>
+            }
+            type={isValid ? "success" : "error"} // Set alert type, Success for valid, error for invalid
+          />
+        )}
       </div>
     </section>
   );
